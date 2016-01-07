@@ -3,7 +3,7 @@
 인스타그램의 guid 작성 규칙을 구현한 간단한 guid-server 입니다.
 
     $ pip install -r requirements.txt
-    $ python guidserver/app.py
+    $ python manage.py runserver
     
 ## sample request
 
