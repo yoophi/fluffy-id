@@ -2,6 +2,8 @@ import redis
 import time
 from flask import Flask, jsonify
 
+__version__ = '0.0.1'
+
 
 def gen_guid(shard_id=1):
     r = redis.Redis(host='localhost', port=6379, db=0)

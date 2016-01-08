@@ -31,8 +31,11 @@ def list_routes():
     pprint(func_list)
 
 
-if __name__ == "__main__":
+def main():
     manager.add_command("clean", Clean())
     manager.add_command("show_urls", ShowUrls())
-
     manager.run()
+
+
+if __name__ == "__main__":
+    main()

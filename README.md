@@ -2,8 +2,19 @@
 
 인스타그램의 guid 작성 규칙을 구현한 간단한 guid-server 입니다.
 
-    $ pip install -r requirements.txt
-    $ python manage.py runserver
+## install
+
+    $ pip install git+http://github.com/yoophi/guid-server.git
+
+## run
+
+`localhost:6379` 에 `redis-server` 실행되고 있어야 합니다.
+	
+    $ redis-server
+    
+함께 설치되는 `guid_server` 스크립트를 이용해 실행합니다.
+
+    $ guid_server runserver
     
 ## sample request
 
