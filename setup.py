@@ -24,14 +24,14 @@ def find_version(fname):
     return version
 
 
-__version__ = find_version(os.path.join("guid_server", "__init__.py"))
+__version__ = find_version(os.path.join("fluffy_id", "__init__.py"))
 
 setup(
-    name='guid_server',
+    name='fluffy_id',
     version=__version__,
     long_description=read('README.md'),
-    packages=['guid_server'],
-    url='http://github.com/yoophi/guid-server',
+    packages=['fluffy_id'],
+    url='http://github.com/yoophi/fluffy-id',
     license='',
     author='Pyunghyuk Yoo',
     author_email='yoophi@gmail.com',
@@ -39,11 +39,11 @@ setup(
     zip_safe=False,
     entry_points={
         'console_scripts': [
-            "guid_server = guid_server.runner:main"
+            "fluffy_id = fluffy_id.runner:main"
         ]
     },
     install_requires=[
         'Flask==0.10.1',
-        'redis==2.10.3',
+        'Flask-Script',
     ]
 )

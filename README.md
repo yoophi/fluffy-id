@@ -1,6 +1,6 @@
-# guid-server
+# fluffy-id
 
-인스타그램의 guid 작성 규칙을 구현한 간단한 guid-server 입니다.
+Simple http service to make GUID.
 
 ## install
 
@@ -8,17 +8,13 @@
 
 ## run
 
-`localhost:6379` 에 `redis-server` 실행되고 있어야 합니다.
-	
-    $ redis-server
-    
-함께 설치되는 `guid_server` 스크립트를 이용해 실행합니다.
+Simple shell script to run http server `fluff_id` will be installed when you install this package using `pip`.
 
-    $ guid_server runserver
+    $ fluffy_id runserver [-p 7001 -h 0.0.0.0]
     
 ## sample request
 
-    $ http :5000/guid
+    $ http :7001/guid
     HTTP/1.0 200 OK
     Content-Length: 52
     Content-Type: application/json
@@ -30,7 +26,7 @@
         "shard_id": 1
     }
 
-    $ http :5000/guid/100
+    $ http :7001/guid/100
     HTTP/1.0 200 OK
     Content-Length: 54
     Content-Type: application/json

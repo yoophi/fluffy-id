@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 from flask.ext.script import Manager, Server
 from flask_script.commands import ShowUrls, Clean
-
-from guid_server import app
+from fluffy_id import app
 
 manager = Manager(app)
 server = Server(host="0.0.0.0", port=7001)
@@ -17,18 +16,6 @@ def make_shell_context():
     in the context of the app
     """
     return dict(app=app)
-
-
-@manager.command
-def list_routes():
-    output = []
-    func_list = {}
-    for rule in app.url_map.iter_rules():
-        if rule.endpoint != 'static':
-            func_list[rule.rule] = app.view_functions[rule.endpoint].__doc__
-
-    from pprint import pprint
-    pprint(func_list)
 
 
 def main():
