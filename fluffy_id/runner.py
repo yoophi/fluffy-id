@@ -6,7 +6,6 @@ from fluffy_id import app
 manager = Manager(app)
 server = Server(host="0.0.0.0", port=7001)
 manager.add_command("runserver", server)
-app.config.from_object('config-default')
 
 
 @manager.shell
