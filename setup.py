@@ -32,9 +32,10 @@ setup(
     long_description=read('README.md'),
     packages=['fluffy_id'],
     url='http://github.com/yoophi/fluffy-id',
-    license='',
+    license='MIT License',
     author='Pyunghyuk Yoo',
     author_email='yoophi@gmail.com',
+    description='GUID Generator',
     include_package_data=True,
     zip_safe=False,
     entry_points={
@@ -45,5 +46,13 @@ setup(
     install_requires=[
         'Flask==0.10.1',
         'Flask-Script',
+    ],
+    classifiers=[
+        'Environment :: Web Environment',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Topic :: Software Development :: Libraries :: Python Modules'
     ]
 )
