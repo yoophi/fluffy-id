@@ -44,7 +44,7 @@ setup(
         ]
     },
     install_requires=[
-        'Flask==0.10.1',
+        'Flask==1.0',
         'Flask-Script',
     ],
     classifiers=[
