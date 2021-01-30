@@ -1,58 +1,53 @@
-import os
-import re
-from setuptools import setup
+#!/usr/bin/env python
 
+"""The setup script."""
 
-def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+from setuptools import setup, find_packages
 
+with open('README.rst') as readme_file:
+    readme = readme_file.read()
 
-def find_version(fname):
-    '''Attempts to find the version number in the file names fname.
-    Raises RuntimeError if not found.
-    '''
-    version = ''
-    with open(fname, 'r') as fp:
-        reg = re.compile(r'__version__ = [\'"]([^\'"]*)[\'"]')
-        for line in fp:
-            m = reg.match(line)
-            if m:
-                version = m.group(1)
-                break
-    if not version:
-        raise RuntimeError('Cannot find version information')
-    return version
+with open('HISTORY.rst') as history_file:
+    history = history_file.read()
 
+requirements = ['Click>=7.0', ]
 
-__version__ = find_version(os.path.join("fluffy_id", "__init__.py"))
+setup_requirements = ['pytest-runner', ]
+
+test_requirements = ['pytest>=3', ]
 
 setup(
-    name='fluffy_id',
-    version=__version__,
-    long_description=read('README.md'),
-    packages=['fluffy_id'],
-    url='http://github.com/yoophi/fluffy-id',
-    license='MIT License',
-    author='Pyunghyuk Yoo',
+    author="Pyunghyuk Yoo",
     author_email='yoophi@gmail.com',
-    description='GUID Generator',
-    include_package_data=True,
-    zip_safe=False,
-    entry_points={
-        'console_scripts': [
-            "fluffy_id = fluffy_id.runner:main"
-        ]
-    },
-    install_requires=[
-        'Flask==0.10.1',
-        'Flask-Script',
-    ],
+    python_requires='>=3.5',
     classifiers=[
-        'Environment :: Web Environment',
+        'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
-        'Operating System :: OS Independent',
-        'Programming Language :: Python',
-        'Topic :: Software Development :: Libraries :: Python Modules'
-    ]
+        'Natural Language :: English',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+    ],
+    description="Quickly and easily generate individual or bulk sets of globally unique identifiers (GUIDs).",
+    entry_points={
+        'console_scripts': [
+            'fluffy_id=fluffy_id.cli:main',
+        ],
+    },
+    install_requires=requirements,
+    license="MIT license",
+    long_description=readme + '\n\n' + history,
+    include_package_data=True,
+    keywords='fluffy_id',
+    name='fluffy_id',
+    packages=find_packages(include=['fluffy_id', 'fluffy_id.*']),
+    setup_requires=setup_requirements,
+    test_suite='tests',
+    tests_require=test_requirements,
+    url='https://github.com/yoophi/fluffy_id',
+    version='0.0.2',
+    zip_safe=False,
 )
